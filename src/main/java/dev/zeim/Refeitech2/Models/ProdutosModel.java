@@ -1,44 +1,55 @@
 package dev.zeim.Refeitech2.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@Table (name = "tb_produtos")
+@Table(name = "tb_produtos")
 public class ProdutosModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
+    @Column(nullable = false)
     private String nome;
-    private float preco;
-    
-    public ProdutosModel(long id, String nome, float preco) {
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal preco;
+
+    // Construtor padrão (necessário para JPA)
+    public ProdutosModel() {
+    }
+
+    // Construtor com parâmetros
+    public ProdutosModel(Long id, String nome, BigDecimal preco) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
     }
-    public long getId() {
+
+    // Getters e Setters
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public float getPreco() {
+
+    public BigDecimal getPreco() {
         return preco;
     }
-    public void setPreco(float preco) {
+
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
-
-    
 }
-

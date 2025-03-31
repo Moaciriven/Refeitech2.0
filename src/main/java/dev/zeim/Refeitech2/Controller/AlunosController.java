@@ -1,4 +1,4 @@
-package dev.zeim.Refeitech2;
+package dev.zeim.Refeitech2.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
